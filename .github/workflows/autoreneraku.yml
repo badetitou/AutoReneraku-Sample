@@ -29,7 +29,8 @@ jobs:
     name: ${{ matrix.smalltalk }}
     steps:
       - uses: actions/checkout@v2
-      - uses: masesgroup/retrieve-changed-files@v3
+      - id: files
+        uses: masesgroup/retrieve-changed-files@v3
         with:
           format: 'space-delimited'
       - run: echo "changed_files=${{ steps.files.outputs.added_modified }}" >> "$GITHUB_ENV"

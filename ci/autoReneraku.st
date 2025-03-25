@@ -1,6 +1,6 @@
 | auto critics data prNumber url classesNames classes methods |
 
-classesNames := (Smalltalk os environment at: 'changed_files') splitOn: ' '.
+classesNames := (Smalltalk os environment at: 'steps.files.outputs.all') splitOn: ' '.
 classes := classesNames collect: [ :className | Smalltalk classNamed: className ].
 methods := classes flatCollect: [:clazz | clazz methods ].
 
