@@ -32,6 +32,7 @@ jobs:
       - uses: masesgroup/retrieve-changed-files@v3
         with:
           format: 'space-delimited'
+      - run: echo "changed_files=${{ steps.files.outputs.added_modified }}" >> "$GITHUB_ENV"
       - uses: hpi-swa/setup-smalltalkCI@v1
         with:
           smalltalk-image: ${{ matrix.smalltalk }}
