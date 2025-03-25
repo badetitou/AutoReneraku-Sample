@@ -7,7 +7,7 @@ methods := (classes reject: [:clazz | clazz isNil "in case class is not found" ]
 
 methods do: [ :aMethod | | data |
     auto := AutoReneraku new.
-    auto token: (Smalltalk os environment at: 'PAT').
+    auto token: (Smalltalk os environment at: 'GITHUB_TOKEN').
     data := Dictionary new.
     auto fillData: data withNewMethodData: aMethod.
     data at: 'commit_id' put: (Smalltalk os environment at: 'COMMIT_SHA').
