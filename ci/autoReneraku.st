@@ -3,7 +3,7 @@
 filesNames := ((Smalltalk os environment at: 'changed_files') splitOn: ' ').
 classesNames := filesNames collect: [ :file |  ((file splitOn: '/') last splitOn: '.') first ].
 classes := classesNames collect: [ :className | Smalltalk classNamed: className ].
-methods := classes reject: [:clazz | clazz isNil "in case class is not found" ] flatCollect: [:clazz | clazz methods ].
+methods := (classes reject: [:clazz | clazz isNil "in case class is not found" ]) flatCollect: [:clazz | clazz methods ].
 
 methods do: [ :aMethod |
     auto := AutoReneraku new.
