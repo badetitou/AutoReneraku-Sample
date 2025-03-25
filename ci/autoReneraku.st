@@ -10,7 +10,7 @@ methods do: [ :aMethod |
     auto fillData: data withNewMethodData: aMethod.
     data at: 'commit_id' put: (Smalltalk os environment at: 'COMMIT_SHA').
     prNumber := (Smalltalk os environment at: 'PULL_REQUEST_NUMBER').
-    url := 'https://api.github.com/repos/', GITHUB_REPOSITORY, '/pulls/', prNumber, '/comments'.
+    url := 'https://api.github.com/repos/', (Smalltalk os environment at: 'GITHUB_REPOSITORY'), '/pulls/', prNumber, '/comments'.
     Stdio stderr << data printString.
     auto post: url contents: data
 ]
