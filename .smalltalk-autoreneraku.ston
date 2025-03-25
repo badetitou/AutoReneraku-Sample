@@ -1,0 +1,24 @@
+SmalltalkCISpec {
+  #postLoading : [
+    'ci/autoReneraku.st'
+  ],
+  #loading : [
+    SCIMetacelloLoadSpec {
+      #baseline : 'AutoReneraku',
+      #directory : 'src',
+      #ignoreImage : true,
+      #onConflict : #useIncoming,
+      #onUpgrade : #useIncoming
+    },
+    SCIMetacelloLoadSpec {
+      #baseline : 'AutoRenerakuSample',
+      #directory : 'src',
+      #ignoreImage : true,
+      #onConflict : #useIncoming,
+      #onUpgrade : #useIncoming
+    }
+  ],
+  #testing : {
+    #failOnZeroTests : false
+  }
+}
