@@ -31,7 +31,7 @@ jobs:
       - uses: actions/checkout@v2
       - uses: masesgroup/retrieve-changed-files@v3
         with:
-            format: ''
+          format: 'space-delimited'
       - uses: hpi-swa/setup-smalltalkCI@v1
         with:
           smalltalk-image: ${{ matrix.smalltalk }}
