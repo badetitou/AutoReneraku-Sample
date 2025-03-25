@@ -14,5 +14,5 @@ methods do: [ :aMethod | | data |
     prNumber := (Smalltalk os environment at: 'PULL_REQUEST_NUMBER').
     url := 'https://api.github.com/repos/', (Smalltalk os environment at: 'GITHUB_REPOSITORY'), '/pulls/', prNumber, '/comments'.
     Stdio stderr << data printString.
-    Stdio stderr << (auto post: url contents: data) at: #status.
+    Stdio stderr << ((auto post: url contents: data) at: #status)printString.
 ]
