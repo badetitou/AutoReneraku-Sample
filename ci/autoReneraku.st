@@ -11,5 +11,6 @@ methods do: [ :aMethod |
     data at: 'commit_id' put: (Smalltalk os environment at: 'COMMIT_SHA').
     prNumber := (Smalltalk os environment at: 'PULL_REQUEST_NUMBER').
     url := 'https://api.github.com/repos/badetitou/AutoReneraku/pulls/', prNumber, '/comments'.
+    Stdio stderr << data printString.
     auto post: url contents: data
 ]
