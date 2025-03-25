@@ -5,6 +5,7 @@ SmalltalkCISpec {
   #loading : [
     SCIMetacelloLoadSpec {
       #baseline : 'AutoReneraku',
+      #repository : 'github.com/badetitou/AutoReneraku',
       #directory : 'src',
       #ignoreImage : true,
       #onConflict : #useIncoming,
