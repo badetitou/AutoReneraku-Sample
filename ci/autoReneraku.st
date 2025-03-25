@@ -1,4 +1,4 @@
-| auto critics data prNumber url classesNames classes |
+| auto critics data prNumber url classesNames classes methods |
 
 classesNames := (Smalltalk os environment at: 'steps.files.outputs.all') splitOn: ' '.
 classes := classesNames collect: [ :className | Smalltalk classNamed: className ].
