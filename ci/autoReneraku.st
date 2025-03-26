@@ -5,6 +5,8 @@ classesNames := filesNames collect: [ :file |  ((file splitOn: '/') last splitOn
 classes := classesNames collect: [ :className | Smalltalk classNamed: className ].
 methods := (classes reject: [:clazz | clazz isNil "in case class is not found" ]) flatCollect: [:clazz | clazz methods ].
 
+Stdio stderr << IceRepository registry printString.
+
 methods do: [ :aMethod | | data projectName |
     projectName := ((Smalltalk os environment at: 'GITHUB_REPOSITORY') splitOn: '/') last.
     auto := AutoReneraku new.
