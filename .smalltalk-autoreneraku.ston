@@ -8,8 +8,7 @@ SmalltalkCISpec {
       #directory : 'src',
       #ignoreImage : true,
       #onConflict : #useIncoming,
-      #onUpgrade : #useIncoming,
-      #registerInIceberg : true
+      #onUpgrade : #useIncoming
     },
     SCIMetacelloLoadSpec {
       #baseline : 'AutoReneraku',
