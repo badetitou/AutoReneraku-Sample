@@ -5,7 +5,7 @@ Class {
 	#package : 'AutoReneraku-Sample'
 }
 
-{ #category : 'tests' }
+{ #category : 'execution' }
 ARSampleSubClass >> testOutside [
 
 	| outside |
