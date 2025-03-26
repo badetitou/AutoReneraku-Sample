@@ -15,18 +15,23 @@ classesNames := filesNames collect: [ :file |  ((file splitOn: '/') last splitOn
 classes := classesNames collect: [ :className | Smalltalk classNamed: className ].
 methods := (classes reject: [:clazz | clazz isNil "in case class is not found" ]) flatCollect: [:clazz | clazz methods ].
 
+critiques := methods collect: [ :m | m -> (m critiques select: [ :cr | cr providesChange ]) ] as: Dictionary.
+critiques := critiques select: [ :val | val isNotEmpty ].
+critiques associations do: [ :assoc | assoc value anyOne change execute ].
+
+
 Stdio stderr << IceRepository registry printString.
 
-methods do: [ :aMethod | | data |
+critiques associations do: [ :assoc | | data |
     auto := AutoReneraku new.
     auto projectName: projectName.
     auto token: (Smalltalk os environment at: 'PAT').
-    Stdio stderr << 'fill for: ', aMethod printString.
+    Stdio stderr << 'fill for: ' << assoc key printString.
     data := Dictionary new.
-    auto fillData: data withNewMethodData: aMethod.
+    auto fillData: data withNewMethodData: assoc key.
     data at: 'commit_id' put: (Smalltalk os environment at: 'COMMIT_SHA').
     prNumber := (Smalltalk os environment at: 'PULL_REQUEST_NUMBER').
     url := 'https://api.github.com/repos/', (Smalltalk os environment at: 'GITHUB_REPOSITORY'), '/pulls/', prNumber, '/comments'.
     Stdio stderr << data printString.
-    Stdio stderr << ((auto post: url contents: data) at: #status)printString.
+    Stdio stderr << ((auto post: url contents: data) at: #status) printString.
 ]
