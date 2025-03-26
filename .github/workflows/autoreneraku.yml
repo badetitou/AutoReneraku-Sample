@@ -34,14 +34,15 @@ jobs:
         with:
           fetch-depth: '0'
       - uses: hpi-swa/setup-smalltalkCI@v1
+        id: smalltalkci
         with:
           smalltalk-image: ${{ matrix.smalltalk }}
-      - run: smalltalkci -s ${{ matrix.smalltalk }} .smalltalk-autoreneraku.ston
+      - run: smalltalkci -s ${{ steps.smalltalkci.outputs.smalltalk-image }} .smalltalk-autoreneraku.ston
         shell: bash
         timeout-minutes: 15
       - name: AutoReneraku
         uses: badetitou/AutoReneraku@main
         with:
           pat: ${{ secrets.PAT }}
-          smalltalk: ${{ matrix.smalltalk }}
+          smalltalk: ${{ steps.smalltalkci.outputs.smalltalk-image }}
           pharo-image: '/home/runner/.smalltalkCI/_builds/TravisCI.image'
