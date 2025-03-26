@@ -34,5 +34,3 @@ jobs:
         uses: badetitou/AutoReneraku@main
         with:
           pat: ${{ secrets.PAT }}
-          smalltalk: ${{ steps.smalltalkci.outputs.smalltalk-image }}
-          pharo-image: '/home/runner/.smalltalkCI/_builds/TravisCI.image'
