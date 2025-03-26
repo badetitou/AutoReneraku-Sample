@@ -31,8 +31,6 @@ jobs:
     name: ${{ matrix.smalltalk }}
     steps:
       - uses: actions/checkout@v2
-        with:
-          fetch-depth: '0'
       - id: files
         uses: masesgroup/retrieve-changed-files@v3
         with:
