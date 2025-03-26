@@ -4,8 +4,7 @@ SmalltalkCISpec {
   ],
   #loading : [
     SCIMetacelloLoadSpec {
-      #baseline : 'AutoReneraku',
-      #repository : 'github://badetitou/AutoReneraku:main',
+      #baseline : 'AutoRenerakuSample',
       #directory : 'src',
       #ignoreImage : true,
       #onConflict : #useIncoming,
@@ -13,12 +12,12 @@ SmalltalkCISpec {
       #registerInIceberg : true
     },
     SCIMetacelloLoadSpec {
-      #baseline : 'AutoRenerakuSample',
+      #baseline : 'AutoReneraku',
+      #repository : 'github://badetitou/AutoReneraku:main',
       #directory : 'src',
       #ignoreImage : true,
       #onConflict : #useIncoming,
-      #onUpgrade : #useIncoming,
-      #registerInIceberg : true
+      #onUpgrade : #useIncoming
     }
   ],
   #testing : {
