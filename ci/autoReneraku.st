@@ -21,6 +21,7 @@ methods do: [ :aMethod | | data |
     auto := AutoReneraku new.
     auto projectName: projectName.
     auto token: (Smalltalk os environment at: 'PAT').
+    Stdio stderr << 'fill for: ', aMethod printString.
     data := Dictionary new.
     auto fillData: data withNewMethodData: aMethod.
     data at: 'commit_id' put: (Smalltalk os environment at: 'COMMIT_SHA').
