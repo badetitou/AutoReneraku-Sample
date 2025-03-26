@@ -42,5 +42,6 @@ jobs:
       - name: AutoReneraku
         uses: badetitou/AutoReneraku@main
         with:
+          pat: ${{ secrets.PAT }}
           smalltalk: ${{ matrix.smalltalk }}
           pharo-image: '/home/runner/.smalltalkCI/_builds/TravisCI.image'
