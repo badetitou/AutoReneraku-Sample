@@ -15,7 +15,14 @@ classesNames := filesNames collect: [ :file |  ((file splitOn: '/') last splitOn
 classes := classesNames collect: [ :className | Smalltalk classNamed: className ].
 methods := (classes reject: [:clazz | clazz isNil "in case class is not found" ]) flatCollect: [:clazz | clazz methods ].
 
-critiques := methods collect: [ :m | m -> (m critiques select: [ :cr | cr providesChange ]) ] as: Dictionary.
+auto := AutoReneraku new.
+auto projectName: projectName.
+auto token: (Smalltalk os environment at: 'PAT').
+methods do: [:method | 
+    auto autoRenerakuMethod: method
+]
+
+"critiques := methods collect: [ :m | m -> (m critiques select: [ :cr | cr providesChange ]) ] as: Dictionary.
 critiques := critiques select: [ :val | val isNotEmpty ].
 critiques associations do: [ :assoc | assoc value anyOne change execute ].
 
@@ -37,3 +44,4 @@ critiques associations do: [ :assoc | | data |
     Stdio stderr << (auto post: url contents: data) printString.
     Stdio stderr << String crlf.
 ]
+"
