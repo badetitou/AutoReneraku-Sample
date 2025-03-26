@@ -12,26 +12,32 @@ env:
   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
 permissions:
-  contents: read
+  contents: write
   pull-requests: write
+  repository-projects: write
+  id-token: write
 
 jobs:
   build:
     runs-on: ubuntu-latest
     env:
       PROJECT_NAME: ${{ matrix.smalltalk }}
-      PAT: ${{ secrets.PAT }}
       PULL_REQUEST_NUMBER: ${{ github.event.number }}
       COMMIT_SHA: ${{ github.event.pull_request.head.sha }}
+      PAT: ${{ secrets.PAT }}
     strategy:
       matrix:
         smalltalk: [ Pharo64-12  ]
     name: ${{ matrix.smalltalk }}
     steps:
       - uses: actions/checkout@v2
-      - uses: masesgroup/retrieve-changed-files@v3
         with:
-            format: ''
+          fetch-depth: '0'
+      - id: files
+        uses: masesgroup/retrieve-changed-files@v3
+        with:
+          format: 'space-delimited'
+      - run: echo "changed_files=${{ steps.files.outputs.added_modified }}" >> "$GITHUB_ENV"
       - uses: hpi-swa/setup-smalltalkCI@v1
         with:
           smalltalk-image: ${{ matrix.smalltalk }}

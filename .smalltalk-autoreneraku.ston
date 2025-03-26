@@ -4,15 +4,15 @@ SmalltalkCISpec {
   ],
   #loading : [
     SCIMetacelloLoadSpec {
-      #baseline : 'AutoReneraku',
-      #repository : 'github.com/badetitou/AutoReneraku',
+      #baseline : 'AutoRenerakuSample',
       #directory : 'src',
       #ignoreImage : true,
       #onConflict : #useIncoming,
       #onUpgrade : #useIncoming
     },
     SCIMetacelloLoadSpec {
-      #baseline : 'AutoRenerakuSample',
+      #baseline : 'AutoReneraku',
+      #repository : 'github://badetitou/AutoReneraku:main',
       #directory : 'src',
       #ignoreImage : true,
       #onConflict : #useIncoming,
