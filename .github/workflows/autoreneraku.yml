@@ -40,7 +40,7 @@ jobs:
         shell: bash
         timeout-minutes: 15
       - name: AutoReneraku
-        uses: badetitou/AutoReneraku@main
+        uses: badetitou/AutoReneraku@v1.0.1
         with:
           pat: ${{ secrets.PAT }}
           smalltalk: ${{ matrix.smalltalk }}
