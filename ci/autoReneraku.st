@@ -1,9 +1,11 @@
 | auto critics prNumber url classesNames classes methods filesNames |
 
+projectName := ((Smalltalk os environment at: 'GITHUB_REPOSITORY') splitOn: '/') last.
+
 (IceRepositoryCreator new
 	location: '.' asFileReference;
 	subdirectory: 'src';
-	createRepository) register.
+	createNewRepositoryNamed: projectName) register.
 
 
 filesNames := ((Smalltalk os environment at: 'changed_files') splitOn: ' ').
@@ -14,7 +16,6 @@ methods := (classes reject: [:clazz | clazz isNil "in case class is not found" ]
 Stdio stderr << IceRepository registry printString.
 
 methods do: [ :aMethod | | data projectName |
-    projectName := ((Smalltalk os environment at: 'GITHUB_REPOSITORY') splitOn: '/') last.
      Stdio stderr << 'project name: '<< projectName printString.
     auto := AutoReneraku new.
     auto projectName: projectName.
