@@ -1,5 +1,11 @@
 | auto critics prNumber url classesNames classes methods filesNames |
 
+(IceRepositoryCreator new
+	location: '.' asFileReference;
+	subdirectory: 'src';
+	createRepository) register
+
+
 filesNames := ((Smalltalk os environment at: 'changed_files') splitOn: ' ').
 classesNames := filesNames collect: [ :file |  ((file splitOn: '/') last splitOn: '.') first ].
 classes := classesNames collect: [ :className | Smalltalk classNamed: className ].
