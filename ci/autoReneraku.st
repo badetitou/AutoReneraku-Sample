@@ -6,7 +6,9 @@ Stdio stderr << 'project name: '<< projectName printString.
 (IceRepositoryCreator new
 	location: '.' asFileReference;
 	subdirectory: 'src';
-	createNewRepositoryNamed: projectName) register.
+    name: projectName;
+	createRepository) name:projectName;
+        register.
 
 
 filesNames := ((Smalltalk os environment at: 'changed_files') splitOn: ' ').
