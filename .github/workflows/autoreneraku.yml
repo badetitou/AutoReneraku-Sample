@@ -24,6 +24,7 @@ jobs:
       PROJECT_NAME: ${{ matrix.smalltalk }}
       PULL_REQUEST_NUMBER: ${{ github.event.number }}
       COMMIT_SHA: ${{ github.event.pull_request.head.sha }}
+      PAT: ${{ secrets.PAT }}
     strategy:
       matrix:
         smalltalk: [ Pharo64-12  ]
