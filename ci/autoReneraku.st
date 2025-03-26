@@ -1,4 +1,4 @@
-| auto critics prNumber url classesNames classes methods filesNames projectName critiques |
+| auto |
 
 auto := AutoReneraku new.
 auto prepareAutoReneraku.
