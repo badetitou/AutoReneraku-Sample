@@ -5,8 +5,10 @@ classesNames := filesNames collect: [ :file |  ((file splitOn: '/') last splitOn
 classes := classesNames collect: [ :className | Smalltalk classNamed: className ].
 methods := (classes reject: [:clazz | clazz isNil "in case class is not found" ]) flatCollect: [:clazz | clazz methods ].
 
-methods do: [ :aMethod | | data |
+methods do: [ :aMethod | | data projectName |
+    projectName := ((Smalltalk os environment at: 'GITHUB_REPOSITORY') splitOn: '/') last.
     auto := AutoReneraku new.
+    auto projectName: 'AutoReneraku-Sample'.
     auto token: (Smalltalk os environment at: 'PAT').
     data := Dictionary new.
     auto fillData: data withNewMethodData: aMethod.
