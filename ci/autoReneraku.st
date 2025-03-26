@@ -6,7 +6,6 @@ Stdio stderr << 'project name: '<< projectName printString.
 (IceRepositoryCreator new
 	location: '.' asFileReference;
 	subdirectory: 'src';
-    name: projectName;
 	createRepository) name:projectName;
         register.
 
