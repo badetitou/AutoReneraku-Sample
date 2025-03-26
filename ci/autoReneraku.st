@@ -3,7 +3,7 @@
 (IceRepositoryCreator new
 	location: '.' asFileReference;
 	subdirectory: 'src';
-	createRepository) register
+	createRepository) register.
 
 
 filesNames := ((Smalltalk os environment at: 'changed_files') splitOn: ' ').
