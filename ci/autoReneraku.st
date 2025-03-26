@@ -15,8 +15,9 @@ Stdio stderr << IceRepository registry printString.
 
 methods do: [ :aMethod | | data projectName |
     projectName := ((Smalltalk os environment at: 'GITHUB_REPOSITORY') splitOn: '/') last.
+     Stdio stderr << 'project name: '<< projectName printString.
     auto := AutoReneraku new.
-    auto projectName: 'AutoReneraku-Sample'.
+    auto projectName: projectName.
     auto token: (Smalltalk os environment at: 'PAT').
     data := Dictionary new.
     auto fillData: data withNewMethodData: aMethod.
