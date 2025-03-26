@@ -1,4 +1,4 @@
-| auto critics prNumber url classesNames classes methods filesNames projectName |
+| auto critics prNumber url classesNames classes methods filesNames projectName critiques |
 
 projectName := ((Smalltalk os environment at: 'GITHUB_REPOSITORY') splitOn: '/') last.
 Stdio stderr << 'project name: '<< projectName printString.
