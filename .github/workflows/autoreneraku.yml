@@ -28,5 +28,3 @@ jobs:
         timeout-minutes: 15
       - name: AutoReneraku
         uses: badetitou/AutoReneraku@main
-        with:
-          pat: ${{ secrets.PAT }}
