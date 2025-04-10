@@ -4,6 +4,9 @@ A class with a custom comment
 Class {
 	#name : 'ARSampleTest',
 	#superclass : 'TestCase',
+	#instVars : [
+		'instVar'
+	],
 	#category : 'AutoReneraku-Sample',
 	#package : 'AutoReneraku-Sample'
 }
