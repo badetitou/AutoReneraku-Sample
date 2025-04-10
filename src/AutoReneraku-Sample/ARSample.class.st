@@ -9,7 +9,16 @@ Class {
 ARSample >> testOutside [
 
 	| outside |
-	1 > 2
-		ifTrue: [ outside := 3 ]
-		ifFalse: [ outside := 4 ]
+	outside := 1 > 2
+		           ifTrue: [ 3 ]
+		           ifFalse: [ 4 ]
+]
+
+{ #category : 'tests' }
+ARSample >> testOutsideAnotherProblemWithProtocol [
+
+	| outside |
+	outside := 1 > 2
+		           ifTrue: [ 3 ]
+		           ifFalse: [ 4 ]
 ]

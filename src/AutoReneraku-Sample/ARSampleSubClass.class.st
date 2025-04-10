@@ -13,3 +13,12 @@ ARSampleSubClass >> testOutside [
 		           ifTrue: [ 3 ]
 		           ifFalse: [ 4 ]
 ]
+
+{ #category : 'execution' }
+ARSampleSubClass >> testOutsideAnotherProblemWithProtocol [
+
+	| outside |
+	outside := 1 > 2
+		           ifTrue: [ 3 ]
+		           ifFalse: [ 4 ]
+]
