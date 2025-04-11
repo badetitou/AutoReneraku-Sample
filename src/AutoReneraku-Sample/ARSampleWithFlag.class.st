@@ -28,3 +28,13 @@ ARSampleWithFlag >> testOutsideMultiStatementFlag [
 		           ifTrue: [ 3 ]
 		           ifFalse: [ 4 ]
 ]
+
+{ #category : 'tests' }
+ARSampleWithFlag >> testOutsideMultiStatementFlagNotFormatted [
+	"with comment"
+
+	| outside |
+	outside := 1 > 2 ifTrue: [ 3 ] ifFalse: [ 4 ].
+	self flag: 'We should improve this method'.
+	outside := 1 > 2 ifTrue: [ 3 ] ifFalse: [ 4 ]
+]
