@@ -13,3 +13,12 @@ ARSample >> testOutside [
 		           ifTrue: [ 3 ]
 		           ifFalse: [ 4 ]
 ]
+
+{ #category : 'tests' }
+ARSample >> testOutsideAnotherProblemWithProtocol [
+
+	| outside |
+	outside := 1 > 2
+		           ifTrue: [ 3 ]
+		           ifFalse: [ 4 ]
+]
